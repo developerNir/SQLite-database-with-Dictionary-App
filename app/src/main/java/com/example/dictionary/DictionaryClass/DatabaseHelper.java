@@ -17,4 +17,12 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         Cursor cursor = db.rawQuery("select * from Dictionary", null);
         return cursor;
     }
+
+    public Cursor sortData(String key){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from Dictionary where word like '%"+key+"%' ", null);
+        return cursor;
+    }
+
+
 }
